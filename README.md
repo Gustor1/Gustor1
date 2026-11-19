@@ -3,10 +3,9 @@
   <img alt="Eliott — engineering student at UTBM. AI agents, web apps and local-first tools." src="./assets/banner-light.svg" width="100%">
 </picture>
 
+<!-- Portfolio : à ajouter dans la ligne ci-dessous quand il sera en ligne -->
 <p align="center">
   <a href="https://www.linkedin.com/in/eliott-le-bb24a5363/">LinkedIn</a> &nbsp;·&nbsp;
-  <!-- Portfolio : à ajouter quand il sera en ligne -->
-  
   <a href="https://github.com/Gustor1?tab=repositories">All repositories</a>
 </p>
 
