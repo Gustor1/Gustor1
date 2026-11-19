@@ -107,14 +107,36 @@ def windows(rng):
 
 def stars(rng):
     out = []
-    for _ in range(70):
+    for _ in range(120):
         x, y = rng.uniform(20, 1180), rng.uniform(14, 230)
         if x < 600 and 60 < y < 320:  # pas d'étoiles derrière le texte
             continue
         r = rng.choice([0.6, 0.8, 1, 1.3])
         out.append(f'<circle class="s" style="animation-delay:{rng.uniform(0, 6):.1f}s;'
                    f'animation-duration:{rng.uniform(3, 7):.1f}s" cx="{x:.0f}" cy="{y:.0f}" r="{r}"/>')
+    # quelques étoiles plus brillantes, en croix
+    for _ in range(7):
+        x, y = rng.uniform(620, 1180), rng.uniform(16, 150)
+        out.append(f'<path class="spark" style="animation-delay:{rng.uniform(0, 5):.1f}s;'
+                   f'transform-origin:{x:.0f}px {y:.0f}px" d="M{x:.0f} {y - 5:.0f}L{x + 1:.0f} {y - 1:.0f}'
+                   f'L{x + 5:.0f} {y:.0f}L{x + 1:.0f} {y + 1:.0f}L{x:.0f} {y + 5:.0f}L{x - 1:.0f} {y + 1:.0f}'
+                   f'L{x - 5:.0f} {y:.0f}L{x - 1:.0f} {y - 1:.0f}Z"/>')
     return "\n    ".join(out)
+
+
+PLANE = ('<path d="M-10 -.6L8 -1.2Q12 0 8 1.2L-10 .6Z"/>'
+         '<path d="M-1 -1L-6 -8H-3L4 -1Z"/><path d="M-1 1L-6 8H-3L4 1Z"/>'
+         '<path d="M-10 0L-12 -4H-9.5L-7 0Z"/>')
+
+
+def plane(cls, y, flip, delay):
+    """Avion de nuit : silhouette + feux (rouge bâbord, vert tribord, flash blanc)."""
+    sx = -1 if flip else 1
+    return (f'<g class="{cls}" style="animation-delay:{delay}s"><g transform="translate(0 {y}) scale({sx * 1.35} 1.35)">'
+            f'<g fill="#6E7FA8">{PLANE}</g>'
+            f'<circle class="nav" cx="-5.5" cy="-7.6" r="1.6" fill="#FF4A4A" filter="url(#glow)"/>'
+            f'<circle class="nav" cx="-5.5" cy="7.6" r="1.6" fill="#4CFF8A" filter="url(#glow)"/>'
+            f'<circle class="strobe" cx="-11.5" cy="-3.6" r="1.4" fill="#FFFFFF" filter="url(#glow)"/></g></g>')
 
 
 def build():
@@ -152,6 +174,9 @@ def build():
     <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#fff" stop-opacity=".6"/><stop offset=".75" stop-color="#fff" stop-opacity="0"/>
     </linearGradient>
+    <linearGradient id="trail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#9FC4FF" stop-opacity="0"/>
+    </linearGradient>
     <mask id="reflMask"><rect x="0" y="{GROUND}" width="{W}" height="{H - GROUND}" fill="url(#fade)"/></mask>
     <clipPath id="towerClip"><path d="{TOWER}"/></clipPath>
     <clipPath id="card"><rect width="{W}" height="{H}" rx="16"/></clipPath>
@@ -176,6 +201,18 @@ def build():
     .scan {{ animation: scan 4.5s cubic-bezier(.5,0,.5,1) 3s infinite; transform: translateY(300px); }}
     .ripple {{ animation: ripple 6s linear infinite; }}
     .fadein {{ opacity: 0; animation: on 1.4s ease 2.8s forwards; }}
+    .spark {{ fill: #F4F7FF; animation: sparkle 4.5s ease-in-out infinite; }}
+    .planeR {{ animation: flyR 26s linear infinite; transform: translateX(-60px); }}
+    .planeL {{ animation: flyL 34s linear infinite; transform: translateX(1260px); }}
+    .nav {{ animation: blink 1.2s steps(1) infinite; }}
+    .strobe {{ opacity: 0; animation: strobe 1.5s linear infinite; }}
+    .meteor {{ opacity: 0; animation: meteor 13s linear infinite; }}
+    @keyframes sparkle {{ 0%, 100% {{ opacity: .15; transform: scale(.5); }} 50% {{ opacity: 1; transform: scale(1.2); }} }}
+    @keyframes flyR {{ 0% {{ transform: translateX(-60px); }} 55%, 100% {{ transform: translateX(1260px); }} }}
+    @keyframes flyL {{ 0% {{ transform: translateX(1260px); }} 60%, 100% {{ transform: translateX(-60px); }} }}
+    @keyframes strobe {{ 0%, 8% {{ opacity: 1; }} 9%, 100% {{ opacity: 0; }} }}
+    @keyframes meteor {{ 0% {{ opacity: 0; transform: translate(0, 0); }} 1% {{ opacity: 1; }}
+      7% {{ opacity: 0; transform: translate(-260px, 130px); }} 100% {{ opacity: 0; transform: translate(-260px, 130px); }} }}
     @keyframes on {{ to {{ opacity: 1; }} }}
     @keyframes flick {{ 0%, 88%, 91%, 94%, 100% {{ opacity: 1; }} 89%, 92% {{ opacity: .15; }} }}
     @keyframes toggle {{ 0%, 55% {{ opacity: 1; }} 56%, 100% {{ opacity: .08; }} }}
@@ -186,7 +223,8 @@ def build():
     @keyframes ripple {{ from {{ transform: translateX(0); }} to {{ transform: translateX(-60px); }} }}
     @media (prefers-reduced-motion: reduce) {{
       .w, .s, .pulse, .blink, .ripple, .fadein {{ animation: none !important; opacity: 1; }}
-      .scan {{ animation: none; opacity: 0; }}
+      .scan, .planeR, .planeL, .meteor {{ animation: none !important; opacity: 0; }}
+      .spark {{ animation: none; opacity: .8; }}
     }}
   </style>
 
@@ -198,6 +236,10 @@ def build():
     {stars(rng)}
     </g>
     <circle class="fadein" cx="560" cy="58" r="17" fill="#F4E7C8" filter="url(#glow)" opacity=".9"/>
+    <g class="meteor" style="animation-delay:4s"><path d="M1040 30l70 -35" stroke="url(#trail)" stroke-width="1.6" stroke-linecap="round" transform="rotate(0)"/></g>
+    <g class="meteor" style="animation-delay:10.5s;animation-duration:17s"><path d="M760 24l70 -35" stroke="url(#trail)" stroke-width="1.3" stroke-linecap="round"/></g>
+    {plane("planeR", 44, False, 1.5)}
+    {plane("planeL", 74, True, 9)}
 
     <g id="city" transform="{CITY_TF}">
       <g fill="{C['body']}" stroke="{C['edge']}" stroke-width="1" stroke-linejoin="round">

@@ -18,23 +18,12 @@ I also have a soft spot for **China**: its cities, the street life, the metro at
 
 ## Selected work
 
-### [Ultimate Travel Agent](https://github.com/Gustor1/ultimate-travel-agent)
-An open-source multi-agent toolkit for planning trips you can actually check. It has 14 skills, 12 specialist agents and 9 workflows on top of a deterministic Python core, with an optional MCP server. Every recommendation comes with sources, freshness rules and a budget you can verify. It plans and checks, and never books anything for you.
+<a href="https://github.com/Gustor1/ultimate-travel-agent"><img alt="Ultimate Travel Agent: an open-source multi-agent toolkit for planning verifiable trips, with 14 skills, 12 specialist agents, 9 workflows and an optional MCP server." src="./assets/card-travel-agent.svg" width="100%"></a>
 
-`Python` `MCP` `Agent Skills` `multi-agent` `local-first`<br>
-<sub>🇫🇷 Pack open-source de skills et d'agents pour planifier des voyages réalistes et vérifiables.</sub>
+<a href="https://app-vacances-27.vercel.app"><img alt="Détours: an offline-first travel notebook app born from a 2027 trip across China, built with React, TypeScript, Vite, Leaflet and Supabase." src="./assets/card-detours.svg" width="100%"></a>
+<p align="right"><sub><a href="https://app-vacances-27.vercel.app">Open the live app ↗</a> &nbsp;·&nbsp; <a href="https://github.com/Gustor1/app-vacances-27">Code</a></sub></p>
 
-### [Détours](https://github.com/Gustor1/app-vacances-27) &nbsp;<sub>[live ↗](https://app-vacances-27.vercel.app)</sub>
-A travel notebook app. It started as a planner for a 2027 trip across China (Shenzhen → Yangshuo → Chongqing → Chengdu → Shanghai) and grew into multi-trip notebooks with day plans, maps, bookings, budget in CNY/EUR and Chinese phrases to copy. The local mode works offline with no account. A Supabase beta adds Google sign-in, sync and shared notebooks with roles for each member.
-
-`React` `TypeScript` `Vite` `Leaflet` `Supabase` `PWA`<br>
-<sub>🇫🇷 Carnet de voyage hors-ligne, né d'un voyage en Chine prévu en 2027.</sub>
-
-### [Speech under noise](https://github.com/Gustor1/projet-ml-s3)
-Machine-learning course project, **Shanghai University × UTBM**, with a team of 6. We asked whether classical denoising helps modern speech models. It doesn't, at least not in real noise. Wiener filtering lowers Whisper's error rate under white noise but **raises it by 8 to 11 %** under pink, street and crowd noise, and it removes the cues that emotion recognition depends on. Our answer was a parallel routing pipeline with multimodal fusion, which brought emotion accuracy up by 20 % relative.
-
-`Python` `Whisper` `Wav2Vec2` `DistilBERT` `DSP` `Docker`<br>
-<sub>🇫🇷 Projet de ML : le débruitage classique dégrade la reconnaissance vocale en bruit réel ; architecture parallèle et fusion multimodale.</sub>
+<a href="https://github.com/Gustor1/projet-ml-s3"><img alt="Speech under noise: an ML project (Shanghai University × UTBM) showing that Wiener filtering raises Whisper's word error rate by 8 to 11 percent in real noise, fixed with parallel routing and multimodal fusion." src="./assets/card-speech.svg" width="100%"></a>
 
 <br>
 
