@@ -1,7 +1,4 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg">
-  <img alt="Eliott — engineering apprentice at UTBM and Électricité de Strasbourg. AI agents, web apps and local-first tools." src="./assets/banner-light.svg" width="100%">
-</picture>
+<img alt="Eliott — engineering apprentice at UTBM and Électricité de Strasbourg. AI agents, web apps and local-first tools. Shanghai skyline at night." src="./assets/banner.svg" width="100%">
 
 <!-- Portfolio : à ajouter dans la ligne ci-dessous quand il sera en ligne -->
 <p align="center">
@@ -19,7 +16,7 @@ I also have a soft spot for **China**: its cities, the street life, the metro at
 
 <br>
 
-## Selected work &nbsp;<sub><sup>作品</sup></sub>
+## Selected work
 
 ### [Ultimate Travel Agent](https://github.com/Gustor1/ultimate-travel-agent)
 An open-source multi-agent toolkit for planning trips you can actually check. It has 14 skills, 12 specialist agents and 9 workflows on top of a deterministic Python core, with an optional MCP server. Every recommendation comes with sources, freshness rules and a budget you can verify. It plans and checks, and never books anything for you.
@@ -41,16 +38,24 @@ Machine-learning course project, **Shanghai University × UTBM**, with a team of
 
 <br>
 
-## Also on the shelf &nbsp;<sub><sup>其他</sup></sub>
+## Activity
+
+<img alt="My GitHub contribution calendar drawn as a city at night: one building per week, one lit window per day with contributions." src="./assets/city.svg" width="100%">
+
+<sub>Rebuilt every day by a GitHub Action from my contribution calendar.</sub>
+
+<br>
+
+## Also on the shelf
 
 - **Study tools.** Interactive revision sites I built for my courses: [databases & SQL](https://gustor1.github.io/revision-bd70/) · [networking quiz](https://gustor1.github.io/sr71-revision-qcm/) · [networking lab](https://gustor1.github.io/sr71-revision-tp/) · [Java lab](https://gustor1.github.io/revision-tp-java/) · [English final](https://gustor1.github.io/techtalk-revision/)
 - **Data & weather.** [Next-day temperature forecasting in Strasbourg](https://github.com/Gustor1/meteo-time-series) · [MeteoInsight](https://github.com/Gustor1/meteo-ml-insights) · [climate analysis](https://github.com/Gustor1/analyse-climat-strasbourg)
-- **Learning Mandarin.** [apprendre-chinois-mandarin](https://github.com/Gustor1/apprendre-chinois-mandarin) &nbsp;<sub>学中文，慢慢来</sub>
+- **Learning Mandarin.** [apprendre-chinois-mandarin](https://github.com/Gustor1/apprendre-chinois-mandarin)
 - **School projects.** [Warehouse management app, PHP/MariaDB](https://github.com/Gustor1/projet-bd70) · [systems programming in C](https://github.com/Gustor1/Projet-LP25-A2025)
 
 <br>
 
-## Toolbox &nbsp;<sub><sup>工具</sup></sub>
+## Toolbox
 
 **Languages:** Python · TypeScript · JavaScript · PHP · C · SQL<br>
 **Building:** React · Vite · Supabase · Streamlit · Docker · Vercel<br>
@@ -58,4 +63,4 @@ Machine-learning course project, **Shanghai University × UTBM**, with a team of
 
 <br>
 
-<p align="center"><sub>一步一步 — one commit at a time.</sub></p>
+<p align="center"><sub>One commit at a time.</sub></p>
