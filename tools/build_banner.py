@@ -84,10 +84,10 @@ SPHERES = [(800, 236, 20), (800, 150, 12), (800, 112, 5)]
 def build(theme):
     t = THEMES[theme]
     name_d, name_w = text_path("georgia.ttf", "Eliott", 104, 64, 186)
-    label_d, _ = text_path("consola.ttf", "ENGINEERING STUDENT · UTBM", 15, 66, 80, tracking=3.2)
+    label_d, _ = text_path("consola.ttf", "ENGINEERING APPRENTICE · UTBM × ÉLECTRICITÉ DE STRASBOURG", 15, 66, 80, tracking=2.4)
     tag_d, _ = text_path("georgiai.ttf", "AI agents, web apps & local-first tools.", 27, 66, 236)
     fr_d, _ = text_path("georgia.ttf", "Agents IA, apps web et outils local-first.", 18, 66, 268)
-    left_d, _ = text_path("consola.ttf", "BELFORT  47.64°N 6.86°E", 12.5, 64, 316, tracking=1.4)
+    left_d, _ = text_path("consola.ttf", "BELFORT / STRASBOURG  48.58°N 7.75°E", 12.5, 64, 316, tracking=1.4)
     right_d, rw = text_path("consola.ttf", "31.23°N 121.47°E", 12.5, 1136, 316, tracking=1.4, anchor="end")
     sh_d, _ = text_path("simkai.ttf", "上海", 15, 1136 - rw - 12, 317, anchor="end")
 
@@ -99,7 +99,7 @@ def build(theme):
     spheres = "\n    ".join(f'<circle pathLength="1" cx="{x}" cy="{y}" r="{r}"/>' for x, y, r in SPHERES)
 
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-labelledby="t d">
-  <title id="t">Eliott — engineering student at UTBM</title>
+  <title id="t">Eliott — engineering apprentice at UTBM and Électricité de Strasbourg</title>
   <desc id="d">AI agents, web apps and local-first tools. A red seal with the character 艾 (ài) and a line drawing of the Shanghai skyline.</desc>
   <style>
     .sky {{ stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.6s cubic-bezier(.6,.05,.25,1) .3s forwards; }}

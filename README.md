@@ -1,6 +1,6 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg">
-  <img alt="Eliott — engineering student at UTBM. AI agents, web apps and local-first tools." src="./assets/banner-light.svg" width="100%">
+  <img alt="Eliott — engineering apprentice at UTBM and Électricité de Strasbourg. AI agents, web apps and local-first tools." src="./assets/banner-light.svg" width="100%">
 </picture>
 
 <!-- Portfolio : à ajouter dans la ligne ci-dessous quand il sera en ligne -->
@@ -11,11 +11,11 @@
 
 <br>
 
-Engineering student at **UTBM** (France). I'm into **AI agents**: I write skills, MCP servers and multi-agent workflows, and I work with agents every day. The rest of the time I build web apps that keep working offline.
+Engineering student at **UTBM** (France), on a work-study apprenticeship at **Électricité de Strasbourg**, so half my time is spent in the **energy sector**, where power grids, data and the energy transition meet. I'm into **AI agents**: I write skills, MCP servers and multi-agent workflows, and I work with agents every day. The rest of the time I build web apps that keep working offline.
 
 I also have a soft spot for **China**: its cities, the street life, the metro at rush hour, the Huangpu at night. Two of the projects below came out of that.
 
-<sub>🇫🇷 Étudiant ingénieur à l'UTBM, passionné d'IA et surtout d'agents IA. Je construis des agents, des apps web et des outils local-first, avec un faible pour la Chine et la vie de ses villes.</sub>
+<sub>🇫🇷 Étudiant ingénieur à l'UTBM en alternance chez Électricité de Strasbourg, dans le secteur de l'énergie. Passionné d'IA et surtout d'agents IA. Je construis des agents, des apps web et des outils local-first, avec un faible pour la Chine et la vie de ses villes.</sub>
 
 <br>
 
