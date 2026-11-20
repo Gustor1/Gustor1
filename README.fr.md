@@ -18,7 +18,7 @@
 <a href="https://github.com/Gustor1/projet-ml-s3"><img alt="Speech under noise : le filtre de Wiener augmente l'erreur de Whisper de 8 à 11 % en bruit réel ; routage parallèle et fusion multimodale." src="./assets/card-speech-fr.svg" width="100%"></a>
 
 <a href="https://gustor1.github.io/study-tools/"><img alt="Outils de révision : un outil pour chaque examen, d'un entraîneur SQL à un simulateur Cisco IOS." src="./assets/card-study-tools-fr.svg" width="100%"></a>
-<p align="right"><sub><a href="https://gustor1.github.io/study-tools/">Voir tous les outils ↗</a> &nbsp;·&nbsp; <a href="https://gustor1.github.io/techtalk-revision/">Essayer l'atelier d'anglais ↗</a> &nbsp;·&nbsp; <a href="https://github.com/Gustor1/study-tools">Dépôt</a></sub></p>
+<p align="right"><sub><a href="https://gustor1.github.io/study-tools/">Voir tous les outils ↗</a> &nbsp;·&nbsp; <a href="https://github.com/Gustor1/study-tools">Dépôt</a></sub></p>
 
 <br>
 
