@@ -1,57 +1,48 @@
+<p align="right"><a href="https://github.com/Gustor1"><img src="./assets/ui/btn-en-on.svg" height="36" alt="English (current)"></a>&nbsp;<a href="https://github.com/Gustor1/Gustor1/blob/main/README.fr.md"><img src="./assets/ui/btn-fr-off.svg" height="36" alt="Lire en français"></a></p>
+
 <img alt="Eliott — engineering apprentice at UTBM and Électricité de Strasbourg. AI agents, web apps and local-first tools. Shanghai skyline at night." src="./assets/banner.svg" width="100%">
 
-<!-- Portfolio : à ajouter dans la ligne ci-dessous quand il sera en ligne -->
-<p align="center">
-  <a href="https://www.linkedin.com/in/eliott-le-bb24a5363/">LinkedIn</a> &nbsp;·&nbsp;
-  <a href="https://github.com/Gustor1?tab=repositories">All repositories</a>
-</p>
+<p align="center"><a href="https://www.linkedin.com/in/eliott-le-bb24a5363/"><img src="./assets/ui/btn-linkedin.svg" height="38" alt="LinkedIn"></a>&nbsp;&nbsp;<a href="https://github.com/Gustor1?tab=repositories"><img src="./assets/ui/btn-repos-en.svg" height="38" alt="All repositories"></a></p>
+
+<img alt="About: engineering student at UTBM on a work-study apprenticeship at Électricité de Strasbourg, in the energy sector. Into AI agents; builds web apps that work offline and a revision tool for every exam. A soft spot for China and its cities." src="./assets/ui/about-en.svg" width="100%">
 
 <br>
 
-Engineering student at **UTBM** (France), on a work-study apprenticeship at **Électricité de Strasbourg**, so half my time is spent in the **energy sector**, where power grids, data and the energy transition meet. I'm into **AI agents**: I write skills, MCP servers and multi-agent workflows, and I work with agents every day. The rest of the time I build web apps that keep working offline, and whenever an exam is coming up, I build myself a tool to revise for it.
+<img alt="Selected work" src="./assets/ui/h1-en.svg" width="100%">
 
-I also have a soft spot for **China**: its cities, the street life, the metro at rush hour, the Huangpu at night. Two of the projects below came out of that.
+<a href="https://github.com/Gustor1/ultimate-travel-agent"><img alt="Ultimate Travel Agent: open-source multi-agent toolkit for planning verifiable trips." src="./assets/card-travel-agent.svg" width="100%"></a>
 
-<sub>🇫🇷 Étudiant ingénieur à l'UTBM en alternance chez Électricité de Strasbourg, dans le secteur de l'énergie. Passionné d'IA et surtout d'agents IA. Je construis des agents, des apps web, des outils local-first et, à chaque examen, l'appli qui me sert à réviser, avec un faible pour la Chine et la vie de ses villes.</sub>
-
-<br>
-
-## Selected work
-
-<a href="https://github.com/Gustor1/ultimate-travel-agent"><img alt="Ultimate Travel Agent: an open-source multi-agent toolkit for planning verifiable trips, with 14 skills, 12 specialist agents, 9 workflows and an optional MCP server." src="./assets/card-travel-agent.svg" width="100%"></a>
-
-<a href="https://app-vacances-27.vercel.app"><img alt="Détours: an offline-first travel notebook app born from a 2027 trip across China, built with React, TypeScript, Vite, Leaflet and Supabase." src="./assets/card-detours.svg" width="100%"></a>
+<a href="https://app-vacances-27.vercel.app"><img alt="Détours: offline-first travel notebook app born from a 2027 trip across China." src="./assets/card-detours.svg" width="100%"></a>
 <p align="right"><sub><a href="https://app-vacances-27.vercel.app">Open the live app ↗</a> &nbsp;·&nbsp; <a href="https://github.com/Gustor1/app-vacances-27">Code</a></sub></p>
 
-<a href="https://github.com/Gustor1/projet-ml-s3"><img alt="Speech under noise: an ML project (Shanghai University × UTBM) showing that Wiener filtering raises Whisper's word error rate by 8 to 11 percent in real noise, fixed with parallel routing and multimodal fusion." src="./assets/card-speech.svg" width="100%"></a>
+<a href="https://github.com/Gustor1/projet-ml-s3"><img alt="Speech under noise: Wiener filtering raises Whisper's error rate by 8 to 11 percent in real noise; parallel routing and multimodal fusion." src="./assets/card-speech.svg" width="100%"></a>
 
-<a href="https://gustor1.github.io/study-tools/"><img alt="Study tools: every time an exam comes up, I build the revision tool I wish I had. An in-browser SQL trainer, a Cisco IOS simulator and cabling lab, a 438-card networking quiz, a Java lab trainer and an English workshop." src="./assets/card-study-tools.svg" width="100%"></a>
+<a href="https://gustor1.github.io/study-tools/"><img alt="Study tools: a revision tool for every exam, from an SQL trainer to a Cisco IOS simulator." src="./assets/card-study-tools.svg" width="100%"></a>
 <p align="right"><sub><a href="https://gustor1.github.io/study-tools/">See all the tools ↗</a> &nbsp;·&nbsp; <a href="https://gustor1.github.io/techtalk-revision/">Try the English workshop ↗</a> &nbsp;·&nbsp; <a href="https://github.com/Gustor1/study-tools">Repo</a></sub></p>
 
 <br>
 
-## Activity
+<img alt="Activity" src="./assets/ui/h2-en.svg" width="100%">
 
 <img alt="My GitHub contribution calendar drawn as a city at night: one building per week, one lit window per day with contributions." src="./assets/city.svg" width="100%">
 
-<sub>Rebuilt every day by a GitHub Action from my contribution calendar.</sub>
+<br>
+
+<img alt="Also on the shelf" src="./assets/ui/h3-en.svg" width="100%">
+
+<p align="center">
+<a href="https://github.com/Gustor1/meteo-time-series"><img src="./assets/ui/tile-meteo-time-series-en.svg" width="32%" alt="meteo-time-series"></a>
+<a href="https://github.com/Gustor1/meteo-ml-insights"><img src="./assets/ui/tile-meteo-ml-insights-en.svg" width="32%" alt="meteo-ml-insights"></a>
+<a href="https://github.com/Gustor1/analyse-climat-strasbourg"><img src="./assets/ui/tile-analyse-climat-strasbourg-en.svg" width="32%" alt="analyse-climat-strasbourg"></a>
+</p>
+<p align="center">
+<a href="https://github.com/Gustor1/apprendre-chinois-mandarin"><img src="./assets/ui/tile-apprendre-chinois-mandarin-en.svg" width="32%" alt="apprendre-chinois-mandarin"></a>
+<a href="https://github.com/Gustor1/projet-bd70"><img src="./assets/ui/tile-projet-bd70-en.svg" width="32%" alt="projet-bd70"></a>
+<a href="https://github.com/Gustor1/Projet-LP25-A2025"><img src="./assets/ui/tile-Projet-LP25-A2025-en.svg" width="32%" alt="Projet-LP25-A2025"></a>
+</p>
 
 <br>
 
-## Also on the shelf
+<img alt="Toolbox" src="./assets/ui/h4-en.svg" width="100%">
 
-- **Data & weather.** [Next-day temperature forecasting in Strasbourg](https://github.com/Gustor1/meteo-time-series) · [MeteoInsight](https://github.com/Gustor1/meteo-ml-insights) · [climate analysis](https://github.com/Gustor1/analyse-climat-strasbourg)
-- **Learning Mandarin.** [apprendre-chinois-mandarin](https://github.com/Gustor1/apprendre-chinois-mandarin)
-- **School projects.** [Warehouse management app, PHP/MariaDB](https://github.com/Gustor1/projet-bd70) · [systems programming in C](https://github.com/Gustor1/Projet-LP25-A2025)
-
-<br>
-
-## Toolbox
-
-**Languages:** Python · TypeScript · JavaScript · PHP · C · SQL<br>
-**Building:** React · Vite · Supabase · Streamlit · Docker · Vercel<br>
-**AI:** agent skills · MCP · multi-agent orchestration · Hugging Face · Whisper · scikit-learn · Claude Code · Codex
-
-<br>
-
-<p align="center"><sub>One commit at a time.</sub></p>
+<img alt="Toolbox: Python, TypeScript, JavaScript, PHP, C, SQL; React, Vite, Supabase, Streamlit, Docker, Vercel; agent skills, MCP, multi-agent, Hugging Face, Whisper, scikit-learn, Claude Code, Codex." src="./assets/ui/toolbox-en.svg" width="100%">

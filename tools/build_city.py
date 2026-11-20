@@ -48,7 +48,14 @@ def fetch():
 
 LEVEL = {"NONE": 0, "FIRST_QUARTILE": 1, "SECOND_QUARTILE": 2, "THIRD_QUARTILE": 3, "FOURTH_QUARTILE": 4}
 LIT = ["#1A2236", "#7A5A26", "#C88A2E", "#FFC45C", "#FFE7A3"]
-MONTHS = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split()
+MONTHS = {"en": "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(),
+          "fr": "janv. févr. mars avr. mai juin juil. août sept. oct. nov. déc.".split()}
+TXT = {
+    "en": ("{n} contributions in the last year", "One building per week, one window per day. The brighter the window, the more I pushed.",
+           "less", "more", "updated"),
+    "fr": ("{n} contributions sur les 12 derniers mois", "Un immeuble par semaine, une fenêtre par jour. Plus elle brille, plus j'ai poussé de code.",
+           "moins", "plus", "mis à jour le"),
+}
 
 W, H = 1200, 330
 X0, COL, BW = 40, 21.2, 17   # début, pas entre immeubles, largeur d'un immeuble
@@ -56,7 +63,8 @@ CELL, WIN = 13, 9            # hauteur d'étage, taille de fenêtre
 GROUND = 262
 
 
-def build(cal):
+def build(cal, lang="en"):
+    t_title, t_sub, t_less, t_more, t_upd = TXT[lang]
     rng = random.Random(7)
     weeks = cal["weeks"][-53:]
     totals = [sum(d["contributionCount"] for d in w["contributionDays"]) for w in weeks]
@@ -101,14 +109,14 @@ def build(cal):
         m = int(w["contributionDays"][0]["date"][5:7])
         if m != last_m:
             if last_m is not None and i < 52:
-                months.append(f'<text x="{x:.1f}" y="{GROUND + 22}">{MONTHS[m - 1]}</text>')
+                months.append(f'<text x="{x:.1f}" y="{GROUND + 22}">{MONTHS[lang][m - 1]}</text>')
             last_m = m
 
     total = cal["totalContributions"]
     legend = "".join(f'<rect x="{1040 + k * 16}" y="{H - 27}" width="11" height="9" rx="1" fill="{c}"/>'
                      for k, c in enumerate(LIT))
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-labelledby="t d">
-  <title id="t">{total} contributions in the last year</title>
+  <title id="t">{t_title.format(n=total)}</title>
   <desc id="d">GitHub contribution calendar drawn as a city at night: one building per week, one window per day; brighter windows mean more contributions.</desc>
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05070F"/><stop offset="1" stop-color="#111A2E"/></linearGradient>
@@ -129,19 +137,21 @@ def build(cal):
     @media (prefers-reduced-motion: reduce) {{ .w, .blink {{ animation: none !important; opacity: 1; }} }}
   </style>
   <rect width="{W}" height="{H}" rx="16" fill="url(#sky)"/>
-  <text class="h" x="{X0}" y="44">{total:,} contributions in the last year</text>
-  <text x="{X0}" y="68">One building per week, one window per day. The brighter the window, the more I pushed.</text>
+  <text class="h" x="{X0}" y="44">{t_title.format(n=f"{total:,}".replace(",", " " if lang == "fr" else ","))}</text>
+  <text x="{X0}" y="68">{t_sub}</text>
   {''.join(parts)}
   <path d="M{X0 - 10} {GROUND}H{W - X0 + 10}" stroke="#2A3650" stroke-width="1.2"/>
   <g>{''.join(months)}</g>
-  <text x="{1040 - 40}" y="{H - 18}">less</text>{legend}<text x="{1040 + 5 * 16 + 4}" y="{H - 18}">more</text>
-  <text x="{X0}" y="{H - 18}" style="font-size:10px;opacity:.6">updated {date.today().isoformat()}</text>
+  <text x="{1040 - 40}" y="{H - 18}">{t_less}</text>{legend}<text x="{1040 + 5 * 16 + 4}" y="{H - 18}">{t_more}</text>
+  <text x="{X0}" y="{H - 18}" style="font-size:10px;opacity:.6">{t_upd} {date.today().isoformat()}</text>
 </svg>
 """
 
 
 if __name__ == "__main__":
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    svg = build(fetch())
-    OUT.write_text(svg, encoding="utf-8")
-    print("ok", OUT, len(svg) // 1024, "KB")
+    cal = fetch()
+    for lang, out in (("en", OUT), ("fr", OUT.with_name("city-fr.svg"))):
+        svg = build(cal, lang)
+        out.write_text(svg, encoding="utf-8")
+        print("ok", out.name, len(svg) // 1024, "KB")

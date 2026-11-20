@@ -10,6 +10,13 @@ from pathlib import Path
 from build_banner import font, text_path
 
 OUT = Path(__file__).resolve().parent.parent / "assets"
+LANG = "en"
+
+
+def T(en, fr):
+    return fr if LANG == "fr" else en
+
+
 W, H = 1200, 340
 C = dict(sky1="#05070F", sky2="#101A2E", ink="#F3EEE4", body="#C5CCD8", muted="#8B95A8",
          edge="#22304A", pill="#0E172A", red="#D9412B", pink="#FF4FA3", cyan="#7FD6FF",
@@ -53,7 +60,7 @@ def card(num, label, title, desc, fr, tag_list, art, art_css, desc_w=600):
         d, _ = text_path("segoeui.ttf", line, 18.5, 56, y)
         body.append(f'<path d="{d}" fill="{C["body"]}"/>')
         y += 27
-    fr_d, _ = text_path("georgiai.ttf", fr, 14.5, 56, y + 6)
+    fr_d = text_path("georgiai.ttf", fr, 14.5, 56, y + 6)[0] if fr else ""
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="{title}: {desc}">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{C['sky1']}"/><stop offset="1" stop-color="{C['sky2']}"/></linearGradient>
@@ -94,7 +101,8 @@ def stars():
 # ---------- 01 · réseau d'agents ----------
 def art_agents():
     cx, cy = 935, 170
-    names = ["flights", "stays", "budget", "routes", "food", "safety"]
+    names = T(["flights", "stays", "budget", "routes", "food", "safety"],
+              ["vols", "hôtels", "budget", "trajets", "cuisine", "sécurité"])
     out, css = [], []
     for i, n in enumerate(names):
         a = -math.pi / 2 + i * math.tau / 6
@@ -172,7 +180,7 @@ def art_wave():
     out = []
     stat_d, sw = text_path("georgia.ttf", "+11 %", 58, 1140, 104, anchor="end")
     out.append(f'<path d="{stat_d}" fill="{C["coral"]}"/>')
-    cap_d, _ = text_path("consola.ttf", "WORD ERROR RATE · WIENER IN REAL NOISE", 11, 1140, 128, tracking=1.2, anchor="end")
+    cap_d, _ = text_path("consola.ttf", T("WORD ERROR RATE · WIENER IN REAL NOISE", "TAUX D'ERREUR · WIENER EN BRUIT RÉEL"), 11, 1140, 128, tracking=1.2, anchor="end")
     out.append(f'<path d="{cap_d}" fill="{C["muted"]}"/>')
     n, x0, x1, mid = 64, 740, 1140, 230
     step = (x1 - x0) / n
@@ -189,7 +197,7 @@ def art_wave():
             for _ in range(2):
                 out.append(f'<circle class="grain" style="animation-delay:{-rng.uniform(0, 1):.2f}s" cx="{x + rng.uniform(-2, 4):.1f}" '
                            f'cy="{mid + rng.uniform(-45, 45):.1f}" r=".9" fill="#8B95A8"/>')
-    for lbl, xx, anchor in [("NOISY INPUT", x0, "start"), ("ROUTED + FUSED", x1, "end")]:
+    for lbl, xx, anchor in [(T("NOISY INPUT", "ENTRÉE BRUITÉE"), x0, "start"), (T("ROUTED + FUSED", "ROUTÉ + FUSIONNÉ"), x1, "end")]:
         d, _ = text_path("consola.ttf", lbl, 11, xx, 300, tracking=1.2, anchor=anchor)
         out.append(f'<path d="{d}" fill="{C["muted"]}"/>')
     out.append(f'<path class="scanline" d="M{x0} 175V285" stroke="{C["pink"]}" stroke-width="1.5" filter="url(#glow)"/>')
@@ -204,25 +212,31 @@ def art_wave():
 
 CARDS = {
     "card-travel-agent": dict(
+        label_fr='AGENTS IA · OPEN SOURCE',
+        title_fr='Ultimate Travel Agent',
+        desc_fr='Une boîte à outils open-source multi-agents pour planifier des voyages vérifiables : 14 skills, 12 agents spécialisés et 9 workflows sur un cœur Python déterministe, avec un serveur MCP en option. Chaque recommandation est sourcée, avec un budget vérifiable.',
         num="01", label="AI AGENTS · OPEN SOURCE", title="Ultimate Travel Agent",
         desc="An open-source multi-agent toolkit that plans trips you can actually check: 14 skills, "
              "12 specialist agents and 9 workflows on a deterministic Python core, with an optional MCP "
              "server. Every recommendation comes with sources and a verifiable budget.",
-        fr="Pack open-source de skills et d'agents pour des voyages réalistes et vérifiables.",
         tag_list=["Python", "MCP", "Agent Skills", "multi-agent", "local-first"], art=art_agents),
     "card-detours": dict(
+        label_fr='APPLI WEB · EN LIGNE',
+        title_fr='Détours',
+        desc_fr="Une appli de carnet de voyage née d'un voyage en Chine prévu en 2027 : planning jour par jour, cartes, réservations, budget CNY/EUR et phrases en chinois à copier. Elle marche hors-ligne sans compte, et une bêta Supabase ajoute Google, la synchro et les carnets partagés.",
         num="02", label="WEB APP · LIVE", title="Détours",
         desc="A travel notebook app born from a 2027 trip across China: day plans, maps, bookings, "
              "a CNY/EUR budget and Chinese phrases to copy. It works offline with no account, and a "
              "Supabase beta adds Google sign-in, sync and shared notebooks.",
-        fr="Carnet de voyage hors-ligne, né d'un voyage en Chine prévu en 2027.",
         tag_list=["React", "TypeScript", "Vite", "Leaflet", "Supabase", "PWA"], art=art_route),
     "card-speech": dict(
+        label_fr='MACHINE LEARNING · SHANGHAI UNIVERSITY × UTBM',
+        title_fr='Speech under noise',
+        desc_fr="Le débruitage classique aide-t-il les modèles de parole modernes ? Pas en bruit réel : le filtre de Wiener augmente l'erreur de Whisper de 8 à 11 % et efface les indices d'émotion. Notre réponse, à 6 : routage parallèle et fusion multimodale, +20 % sur l'émotion.",
         num="03", label="MACHINE LEARNING · SHANGHAI UNIVERSITY × UTBM", title="Speech under noise",
         desc="Does classical denoising help modern speech models? Not in real noise: Wiener filtering "
              "raises Whisper's error rate by 8 to 11 % and erases emotion cues. Our answer, built by a "
              "team of 6: parallel routing and multimodal fusion, +20 % emotion accuracy.",
-        fr="Le débruitage classique dégrade la reconnaissance vocale en bruit réel.",
         tag_list=["Python", "Whisper", "Wav2Vec2", "DistilBERT", "DSP"], art=art_wave),
 }
 
@@ -230,9 +244,15 @@ CARDS = {
 STUDY_TOOLS = [("bd70-exercice", "SQL TRAINER"), ("sr71-simulateur", "CISCO IOS SIMULATOR"),
                ("sr71-cablage", "CABLING LAB"), ("qcm", "438-CARD QUIZ"),
                ("java-accueil", "JAVA LAB TRAINER"), ("techtalk", "ENGLISH WORKSHOP")]
+STUDY_FR = ["ENTRAÎNEUR SQL", "SIMULATEUR CISCO IOS", "LABO DE CÂBLAGE", "QUIZ DE 438 CARTES",
+            "ENTRAÎNEUR TP JAVA", "ATELIER D'ANGLAIS"]
 RAW = "https://raw.githubusercontent.com/Gustor1/study-tools/main/img/"
 
 
+import functools
+
+
+@functools.lru_cache(maxsize=None)
 def thumb(name, size, quality):
     import base64
     import io
@@ -271,7 +291,7 @@ def art_study():
                    f'x="{px}" y="{py}" width="{pw}" height="{ph}" preserveAspectRatio="xMidYMin slice"/>')
     out.append(f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" fill="#0A1430" opacity=".18"/></g>')
     # légende qui change avec l'outil affiché
-    for i, (_, label) in enumerate(STUDY_TOOLS):
+    for i, label in enumerate(T([l for _, l in STUDY_TOOLS], STUDY_FR)):
         d, _ = text_path("consola.ttf", f"{i + 1:02d}/{n:02d}  {label}", 11.5, lx - 10, 38, tracking=1.4)
         out.append(f'<path class="slide{' first' if i == 0 else ''}" style="animation-delay:{i * slot}s" d="{d}" fill="{C["gold"]}"/>')
     out.append(f'<circle class="rec" cx="{lx + lw + 4}" cy="34" r="3.5" fill="{C["red"]}" filter="url(#glow)"/>')
@@ -285,17 +305,26 @@ def art_study():
 
 
 CARDS["card-study-tools"] = dict(
+        label_fr="OUTILS DE RÉVISION · UN EXAMEN ARRIVE ? JE CODE L'OUTIL",
+        title_fr='Outils de révision',
+        desc_fr="À chaque examen, je construis l'outil de révision que j'aurais aimé avoir : un entraîneur SQL dans le navigateur, un simulateur Cisco IOS et un labo de câblage, un quiz réseau de 438 cartes, un entraîneur TP Java et un atelier d'anglais. La vitrine est publique, les sources restent privées.",
     num="04", label="STUDY TOOLS · AN EXAM COMING UP? I BUILD THE TOOL", title="Study tools",
     desc="Every time an exam comes up, I build the revision tool I wish I had: an in-browser SQL "
          "trainer, a Cisco IOS simulator and cabling lab, a 438-card networking quiz, a Java lab "
          "trainer and an English workshop. The showcase is public; the sources stay private.",
-    fr="Un examen arrive ? Je construis l'outil pour le réviser.",
     tag_list=["SQL", "Cisco IOS", "cabling lab", "438-card quiz", "Java", "English"], art=art_study)
 
 
 if __name__ == "__main__":
-    for name, spec in CARDS.items():
-        art, css = spec.pop("art")()
-        svg = card(art=art, art_css=css, **spec)
-        (OUT / f"{name}.svg").write_text(svg, encoding="utf-8")
-        print("ok", name, len(svg) // 1024, "KB")
+    for LANG in ("en", "fr"):
+        for name, spec in CARDS.items():
+            spec = dict(spec)
+            art_fn = spec.pop("art")
+            fr = {k[:-3]: spec.pop(k) for k in [k for k in spec if k.endswith("_fr")]}
+            if LANG == "fr":
+                spec.update(fr)
+            art, css = art_fn()
+            svg = card(art=art, art_css=css, fr="", **spec)
+            out = OUT / (f"{name}.svg" if LANG == "en" else f"{name}-fr.svg")
+            out.write_text(svg, encoding="utf-8")
+            print("ok", out.name, len(svg) // 1024, "KB")

@@ -139,13 +139,22 @@ def plane(cls, y, flip, delay):
             f'<circle class="strobe" cx="-11.5" cy="-3.6" r="1.4" fill="#FFFFFF" filter="url(#glow)"/></g></g>')
 
 
-def build():
+TXT = {
+    "en": ("ENGINEERING APPRENTICE · UTBM × ÉLECTRICITÉ DE STRASBOURG", "AI agents, web apps & local-first tools.",
+           "Energy by day, AI agents by night."),
+    "fr": ("ÉLÈVE INGÉNIEUR EN ALTERNANCE · UTBM × ÉLECTRICITÉ DE STRASBOURG", "Agents IA, applis web & outils local-first.",
+           "L'énergie le jour, les agents IA la nuit."),
+}
+
+
+def build(lang="en"):
+    label, tagline, sub = TXT[lang]
     rng = random.Random(2027)
-    label_d, _ = text_path("consola.ttf", "ENGINEERING APPRENTICE · UTBM × ÉLECTRICITÉ DE STRASBOURG",
+    label_d, _ = text_path("consola.ttf", label,
                            12, 66, 108, tracking=1.6)
     name_d, name_w = text_path("georgia.ttf", "Eliott", 112, 62, 214)
-    tag_d, _ = text_path("georgiai.ttf", "AI agents, web apps & local-first tools.", 28, 66, 266)
-    fr_d, _ = text_path("georgia.ttf", "Agents IA, apps web et outils local-first.", 18, 66, 298)
+    tag_d, _ = text_path("georgiai.ttf", tagline, 28, 66, 266)
+    fr_d, _ = text_path("georgia.ttf", sub, 18, 66, 298)
     left_d, _ = text_path("consola.ttf", "BELFORT / STRASBOURG  48.58°N 7.75°E", 12, 66, 418, tracking=1.4)
     right_d, _ = text_path("consola.ttf", "SHANGHAI  31.23°N 121.47°E", 12, 1134, 418, tracking=1.4, anchor="end")
     # Sceau 爱 (ài) : « aimer », et se prononce comme « AI ».
@@ -286,6 +295,7 @@ def build():
 
 if __name__ == "__main__":
     OUT.mkdir(parents=True, exist_ok=True)
-    svg = build()
-    (OUT / "banner.svg").write_text(svg, encoding="utf-8")
-    print("ok", OUT / "banner.svg", len(svg) // 1024, "KB")
+    for lang, name in (("en", "banner.svg"), ("fr", "banner-fr.svg")):
+        svg = build(lang)
+        (OUT / name).write_text(svg, encoding="utf-8")
+        print("ok", name, len(svg) // 1024, "KB")
