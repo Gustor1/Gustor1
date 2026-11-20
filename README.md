@@ -25,6 +25,9 @@ I also have a soft spot for **China**: its cities, the street life, the metro at
 
 <a href="https://github.com/Gustor1/projet-ml-s3"><img alt="Speech under noise: an ML project (Shanghai University × UTBM) showing that Wiener filtering raises Whisper's word error rate by 8 to 11 percent in real noise, fixed with parallel routing and multimodal fusion." src="./assets/card-speech.svg" width="100%"></a>
 
+<a href="https://gustor1.github.io/study-tools/"><img alt="Study tools: interactive revision sites I build for my courses, with SQL graded in the browser, a Cisco IOS simulator with self-grading missions, a cabling lab, a 438-card networking quiz and a Java lab trainer. Offline, no account." src="./assets/card-study-tools.svg" width="100%"></a>
+<p align="right"><sub><a href="https://gustor1.github.io/study-tools/">See the showcase ↗</a> &nbsp;·&nbsp; <a href="https://gustor1.github.io/techtalk-revision/">Try the English workshop ↗</a></sub></p>
+
 <br>
 
 ## Activity
@@ -37,7 +40,6 @@ I also have a soft spot for **China**: its cities, the street life, the metro at
 
 ## Also on the shelf
 
-- **Study tools.** Interactive revision sites I built for my courses: [databases & SQL](https://gustor1.github.io/revision-bd70/) · [networking quiz](https://gustor1.github.io/sr71-revision-qcm/) · [networking lab](https://gustor1.github.io/sr71-revision-tp/) · [Java lab](https://gustor1.github.io/revision-tp-java/) · [English final](https://gustor1.github.io/techtalk-revision/)
 - **Data & weather.** [Next-day temperature forecasting in Strasbourg](https://github.com/Gustor1/meteo-time-series) · [MeteoInsight](https://github.com/Gustor1/meteo-ml-insights) · [climate analysis](https://github.com/Gustor1/analyse-climat-strasbourg)
 - **Learning Mandarin.** [apprendre-chinois-mandarin](https://github.com/Gustor1/apprendre-chinois-mandarin)
 - **School projects.** [Warehouse management app, PHP/MariaDB](https://github.com/Gustor1/projet-bd70) · [systems programming in C](https://github.com/Gustor1/Projet-LP25-A2025)
