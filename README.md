@@ -8,11 +8,11 @@
 
 <br>
 
-Engineering student at **UTBM** (France), on a work-study apprenticeship at **Électricité de Strasbourg**, so half my time is spent in the **energy sector**, where power grids, data and the energy transition meet. I'm into **AI agents**: I write skills, MCP servers and multi-agent workflows, and I work with agents every day. The rest of the time I build web apps that keep working offline.
+Engineering student at **UTBM** (France), on a work-study apprenticeship at **Électricité de Strasbourg**, so half my time is spent in the **energy sector**, where power grids, data and the energy transition meet. I'm into **AI agents**: I write skills, MCP servers and multi-agent workflows, and I work with agents every day. The rest of the time I build web apps that keep working offline, and whenever an exam is coming up, I build myself a tool to revise for it.
 
 I also have a soft spot for **China**: its cities, the street life, the metro at rush hour, the Huangpu at night. Two of the projects below came out of that.
 
-<sub>🇫🇷 Étudiant ingénieur à l'UTBM en alternance chez Électricité de Strasbourg, dans le secteur de l'énergie. Passionné d'IA et surtout d'agents IA. Je construis des agents, des apps web et des outils local-first, avec un faible pour la Chine et la vie de ses villes.</sub>
+<sub>🇫🇷 Étudiant ingénieur à l'UTBM en alternance chez Électricité de Strasbourg, dans le secteur de l'énergie. Passionné d'IA et surtout d'agents IA. Je construis des agents, des apps web, des outils local-first et, à chaque examen, l'appli qui me sert à réviser, avec un faible pour la Chine et la vie de ses villes.</sub>
 
 <br>
 
@@ -24,6 +24,9 @@ I also have a soft spot for **China**: its cities, the street life, the metro at
 <p align="right"><sub><a href="https://app-vacances-27.vercel.app">Open the live app ↗</a> &nbsp;·&nbsp; <a href="https://github.com/Gustor1/app-vacances-27">Code</a></sub></p>
 
 <a href="https://github.com/Gustor1/projet-ml-s3"><img alt="Speech under noise: an ML project (Shanghai University × UTBM) showing that Wiener filtering raises Whisper's word error rate by 8 to 11 percent in real noise, fixed with parallel routing and multimodal fusion." src="./assets/card-speech.svg" width="100%"></a>
+
+<a href="https://gustor1.github.io/study-tools/"><img alt="Study tools: every time an exam comes up, I build the revision tool I wish I had. An in-browser SQL trainer, a Cisco IOS simulator and cabling lab, a 438-card networking quiz, a Java lab trainer and an English workshop." src="./assets/card-study-tools.svg" width="100%"></a>
+<p align="right"><sub><a href="https://gustor1.github.io/study-tools/">See all the tools ↗</a> &nbsp;·&nbsp; <a href="https://github.com/Gustor1/study-tools">Repo</a></sub></p>
 
 <br>
 
@@ -37,7 +40,6 @@ I also have a soft spot for **China**: its cities, the street life, the metro at
 
 ## Also on the shelf
 
-- **Study tools.** Interactive revision sites I built for my courses: [databases & SQL](https://gustor1.github.io/revision-bd70/) · [networking quiz](https://gustor1.github.io/sr71-revision-qcm/) · [networking lab](https://gustor1.github.io/sr71-revision-tp/) · [Java lab](https://gustor1.github.io/revision-tp-java/) · [English final](https://gustor1.github.io/techtalk-revision/)
 - **Data & weather.** [Next-day temperature forecasting in Strasbourg](https://github.com/Gustor1/meteo-time-series) · [MeteoInsight](https://github.com/Gustor1/meteo-ml-insights) · [climate analysis](https://github.com/Gustor1/analyse-climat-strasbourg)
 - **Learning Mandarin.** [apprendre-chinois-mandarin](https://github.com/Gustor1/apprendre-chinois-mandarin)
 - **School projects.** [Warehouse management app, PHP/MariaDB](https://github.com/Gustor1/projet-bd70) · [systems programming in C](https://github.com/Gustor1/Projet-LP25-A2025)

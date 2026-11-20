@@ -226,6 +226,73 @@ CARDS = {
         tag_list=["Python", "Whisper", "Wav2Vec2", "DistilBERT", "DSP"], art=art_wave),
 }
 
+# ---------- 04 · outils de révision (captures du repo study-tools) ----------
+STUDY_TOOLS = [("bd70-exercice", "SQL TRAINER"), ("sr71-simulateur", "CISCO IOS SIMULATOR"),
+               ("sr71-cablage", "CABLING LAB"), ("qcm", "438-CARD QUIZ"),
+               ("java-accueil", "JAVA LAB TRAINER"), ("techtalk", "ENGLISH WORKSHOP")]
+RAW = "https://raw.githubusercontent.com/Gustor1/study-tools/main/img/"
+
+
+def thumb(name, size, quality):
+    import base64
+    import io
+    import urllib.request
+    from PIL import Image
+    with urllib.request.urlopen(RAW + name + ".webp", timeout=30) as r:
+        im = Image.open(io.BytesIO(r.read())).convert("RGB")
+    im = im.resize(size, Image.LANCZOS)
+    buf = io.BytesIO()
+    im.save(buf, "WEBP", quality=quality, method=6)
+    return "data:image/webp;base64," + base64.b64encode(buf.getvalue()).decode()
+
+
+def art_study():
+    n, slot = len(STUDY_TOOLS), 3
+    total = n * slot
+    lx, ly, lw, lh = 742, 58, 352, 220   # écran du portable
+    px, py, pw, ph = 1066, 112, 92, 199  # écran du téléphone
+    out = [f'<clipPath id="lap"><rect x="{lx}" y="{ly}" width="{lw}" height="{lh}" rx="4"/></clipPath>',
+           f'<clipPath id="pho"><rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="10"/></clipPath>']
+    # halo derrière les écrans
+    out.append(f'<ellipse cx="{lx + lw / 2}" cy="{ly + lh / 2}" rx="230" ry="140" fill="{C["cyan"]}" opacity=".07" filter="url(#glow)"/>')
+    # portable
+    out.append(f'<rect x="{lx - 10}" y="{ly - 10}" width="{lw + 20}" height="{lh + 20}" rx="12" fill="#0B1222" stroke="#3A4C70" stroke-width="1.4"/>')
+    out.append(f'<path d="M{lx - 44} {ly + lh + 14}H{lx + lw + 44}L{lx + lw + 30} {ly + lh + 26}H{lx - 30}Z" fill="#141E33" stroke="#3A4C70"/>')
+    out.append(f'<g clip-path="url(#lap)">')
+    for i, (name, _) in enumerate(STUDY_TOOLS):
+        out.append(f'<image class="slide{' first' if i == 0 else ''}" style="animation-delay:{i * slot}s" href="{thumb(name + "-desktop", (560, 350), 58)}" '
+                   f'x="{lx}" y="{ly}" width="{lw}" height="{lh}" preserveAspectRatio="xMidYMin slice"/>')
+    out.append(f'<rect x="{lx}" y="{ly}" width="{lw}" height="{lh}" fill="#0A1430" opacity=".18"/></g>')
+    # téléphone
+    out.append(f'<rect x="{px - 5}" y="{py - 5}" width="{pw + 10}" height="{ph + 10}" rx="14" fill="#0B1222" stroke="#3A4C70" stroke-width="1.4"/>')
+    out.append(f'<g clip-path="url(#pho)">')
+    for i, (name, _) in enumerate(STUDY_TOOLS):
+        out.append(f'<image class="slide{' first' if i == 0 else ''}" style="animation-delay:{i * slot + .4}s" href="{thumb(name + "-mobile", (184, 398), 55)}" '
+                   f'x="{px}" y="{py}" width="{pw}" height="{ph}" preserveAspectRatio="xMidYMin slice"/>')
+    out.append(f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" fill="#0A1430" opacity=".18"/></g>')
+    # légende qui change avec l'outil affiché
+    for i, (_, label) in enumerate(STUDY_TOOLS):
+        d, _ = text_path("consola.ttf", f"{i + 1:02d}/{n:02d}  {label}", 11.5, lx - 10, 38, tracking=1.4)
+        out.append(f'<path class="slide{' first' if i == 0 else ''}" style="animation-delay:{i * slot}s" d="{d}" fill="{C["gold"]}"/>')
+    out.append(f'<circle class="rec" cx="{lx + lw + 4}" cy="34" r="3.5" fill="{C["red"]}" filter="url(#glow)"/>')
+    pct = 100 / n
+    css = f""".slide {{ opacity: 0; animation: slide {total}s linear infinite; }}
+    .rec {{ animation: blink 1.4s steps(1) infinite; }}
+    @keyframes slide {{ 0% {{ opacity: 0; }} {pct * .12:.2f}% {{ opacity: 1; }} {pct * .92:.2f}% {{ opacity: 1; }} {pct * 1.08:.2f}% {{ opacity: 0; }} 100% {{ opacity: 0; }} }}
+    @keyframes blink {{ 0% {{ opacity: 1; }} 50% {{ opacity: .15; }} }}
+    @media (prefers-reduced-motion: reduce) {{ .slide.first {{ opacity: 1; }} }}"""
+    return "".join(out), css
+
+
+CARDS["card-study-tools"] = dict(
+    num="04", label="STUDY TOOLS · AN EXAM COMING UP? I BUILD THE TOOL", title="Study tools",
+    desc="Every time an exam comes up, I build the revision tool I wish I had: an in-browser SQL "
+         "trainer, a Cisco IOS simulator and cabling lab, a 438-card networking quiz, a Java lab "
+         "trainer and an English workshop. The showcase is public; the sources stay private.",
+    fr="Un examen arrive ? Je construis l'outil pour le réviser.",
+    tag_list=["SQL", "Cisco IOS", "cabling lab", "438-card quiz", "Java", "English"], art=art_study)
+
+
 if __name__ == "__main__":
     for name, spec in CARDS.items():
         art, css = spec.pop("art")()
