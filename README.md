@@ -26,7 +26,7 @@ I also have a soft spot for **China**: its cities, the street life, the metro at
 <a href="https://github.com/Gustor1/projet-ml-s3"><img alt="Speech under noise: an ML project (Shanghai University × UTBM) showing that Wiener filtering raises Whisper's word error rate by 8 to 11 percent in real noise, fixed with parallel routing and multimodal fusion." src="./assets/card-speech.svg" width="100%"></a>
 
 <a href="https://gustor1.github.io/study-tools/"><img alt="Study tools: every time an exam comes up, I build the revision tool I wish I had. An in-browser SQL trainer, a Cisco IOS simulator and cabling lab, a 438-card networking quiz, a Java lab trainer and an English workshop." src="./assets/card-study-tools.svg" width="100%"></a>
-<p align="right"><sub><a href="https://gustor1.github.io/study-tools/">See all the tools ↗</a> &nbsp;·&nbsp; <a href="https://github.com/Gustor1/study-tools">Repo</a></sub></p>
+<p align="right"><sub><a href="https://gustor1.github.io/study-tools/">See all the tools ↗</a> &nbsp;·&nbsp; <a href="https://gustor1.github.io/techtalk-revision/">Try the English workshop ↗</a> &nbsp;·&nbsp; <a href="https://github.com/Gustor1/study-tools">Repo</a></sub></p>
 
 <br>
 
